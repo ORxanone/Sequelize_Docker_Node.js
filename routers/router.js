@@ -1,5 +1,5 @@
 const userController = require("../controllers/userController");
-const processController = require("../controllers/authController");
+// const processController = require("../controllers/authController");
 
 const router = (app) => {
   app.use("/login", userController);
@@ -13,7 +13,7 @@ const router = (app) => {
     next();
   });
 
-  app.use((err, req, req, next) => {
+  app.use((err, req, res, next) => {
     err.statusCode = err.statusCode || 500;
     err.status = err.status || "error";
     res.status(err.statusCode).json({
